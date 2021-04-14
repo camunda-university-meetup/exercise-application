@@ -2,11 +2,6 @@
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0ecdgg4" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
   <bpmn:process id="TestMailOrTweet" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1">
-      <bpmn:extensionElements>
-        <camunda:formData>
-          <camunda:formField id="FormField_" />
-        </camunda:formData>
-      </bpmn:extensionElements>
       <bpmn:outgoing>Flow_14igq9x</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_14igq9x" sourceRef="StartEvent_1" targetRef="Gateway_06j9232" />
@@ -68,6 +63,9 @@
         <di:waypoint x="188" y="177" />
         <di:waypoint x="275" y="177" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="152" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0f6cxx3_di" bpmnElement="Activity_1qbjqse">
         <dc:Bounds x="390" y="60" width="100" height="80" />
       </bpmndi:BPMNShape>
@@ -82,9 +80,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0rfze9f_di" bpmnElement="Activity_1j2gsmz">
         <dc:Bounds x="390" y="230" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="152" y="159" width="36" height="36" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
