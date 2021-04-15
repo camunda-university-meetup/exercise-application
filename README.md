@@ -1,5 +1,5 @@
 # exercise-application
-Application to work on the tasks - provides the camunda-backend and some implementations for a Twitter- and Mailing-Delegate.
+Application to work on the tasks - provides the camunda-app and some implementations for a Twitter- and Mailing-Delegate.
 
 
 # BEFORE YOU START THE APPLICATION
