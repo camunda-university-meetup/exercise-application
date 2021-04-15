@@ -19,7 +19,7 @@ public class TweetDelegate implements JavaDelegate {
     public void execute(final DelegateExecution execution) throws Exception {
 
         //input
-        final String content = this.twitterContent.from(execution).get();
+        final String content = this.twitterContent.from(execution).getLocal();
 
 
         //processing

@@ -26,9 +26,9 @@ public class MailDelegate implements JavaDelegate {
     public void execute(final DelegateExecution execution) throws Exception {
 
         //input
-        final String recipient = this.recipient.from(execution).get();
-        final String content = this.content.from(execution).get();
-        final String subject = this.subject.from(execution).get();
+        final String recipient = this.recipient.from(execution).getLocal();
+        final String content = this.content.from(execution).getLocal();
+        final String subject = this.subject.from(execution).getLocal();
 
         //processing
         this.mailService.sendMail(recipient, subject, content);

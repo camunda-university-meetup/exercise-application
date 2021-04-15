@@ -5,16 +5,21 @@
       <bpmn:extensionElements>
         <camunda:formData>
           <camunda:formField id="Tweet" label="Set true to tweet, false to send mail" type="boolean" defaultValue="true" />
-          <camunda:formField id="twitterContent" label="Enter your Tweet-content here:" type="string" defaultValue="empty" />
-          <camunda:formField id="recipient" label="Enter mail recipient here:" type="string" defaultValue="dominik.horn@spammail.com" />
-          <camunda:formField id="content" label="Enter mail content here:" type="string" defaultValue="empty" />
-          <camunda:formField id="subject" label="Enter mail subject here:" type="string" defaultValue="subj" />
+          <camunda:formField id="FormField_twitterContent" label="Enter your Tweet-content here:" type="string" defaultValue="empty" />
+          <camunda:formField id="FormField_recipient" label="Enter mail recipient here:" type="string" defaultValue="doho@spammail.com" />
+          <camunda:formField id="FormField_content" label="Enter mail content here:" type="string" defaultValue="empty" />
+          <camunda:formField id="FormField_subject" label="Enter mail subject here:" type="string" defaultValue="subj" />
         </camunda:formData>
       </bpmn:extensionElements>
       <bpmn:outgoing>Flow_14igq9x</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_14igq9x" sourceRef="StartEvent_1" targetRef="Gateway_06j9232" />
     <bpmn:serviceTask id="Activity_1qbjqse" name="Post Tweet" camunda:delegateExpression="${tweetDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="twitterContent">${FormField_twitterContent}</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_1pvsqkj</bpmn:incoming>
       <bpmn:outgoing>Flow_0ijb691</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -38,6 +43,13 @@
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_0ijb691" sourceRef="Activity_1qbjqse" targetRef="Event_1dq6on3" />
     <bpmn:serviceTask id="Activity_1j2gsmz" name="Send email" camunda:delegateExpression="${mailDelegate}">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="subject">${FormField_content}</camunda:inputParameter>
+          <camunda:inputParameter name="content">${FormField_content}</camunda:inputParameter>
+          <camunda:inputParameter name="recipient">${FormField_recipient}</camunda:inputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_03qw4pb</bpmn:incoming>
       <bpmn:outgoing>Flow_10vptdu</bpmn:outgoing>
     </bpmn:serviceTask>
