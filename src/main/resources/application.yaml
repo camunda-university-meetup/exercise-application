@@ -5,15 +5,17 @@ camunda.bpm.admin-user:
   password: demo
 
 #Mailing
-spring:mail.host: smtp.gmail.com
+spring.mail.host: smtp.gmail.com
 spring.mail.port: 587
-spring.mail.username: <login user to smtp server>
-spring.mail.password: <login password to smtp server>
+spring.mail.username: "camundauniversity@gmail.com"
+spring.mail.password: EnterPasswordHere
 spring.mail.properties.mail.smtp.auth: true
+spring.mail.properties.mail.smtp.socketFactory.port: 465
+spring.mail.properties.mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
 spring.mail.properties.mail.smtp.starttls.enable: true
 
 #Twitter
-twitter.token: token
-twitter.tokenSecret: tokenSecret
-twitter.apiKey: apiKey
-twitter.apiKeySecret: apiKeySecret
+twitter.token: EnterTokenHere
+twitter.tokenSecret: EnterTokenSecretHere
+twitter.apiKey: EnterApiKeyHere
+twitter.apiKeySecret: EnterApiKeySecretHere

@@ -1,12 +1,15 @@
 package com.meetup.university.mail;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.mail.MailProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Component;
 
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
 import java.util.Properties;
 
 @Component
@@ -17,6 +20,7 @@ public class MailSenderFactory {
 
     @Bean
     public JavaMailSender getJavaMailSender() {
+
         final JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost(this.mailProperties.getHost());
         mailSender.setPort(587);
