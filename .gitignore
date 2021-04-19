@@ -9,8 +9,8 @@
 *.iws
 
 #h2-database
-.mv.db
-.trace.db
+*.mv.db
+*.trace.db
 
 # Mac
 .DS_Store

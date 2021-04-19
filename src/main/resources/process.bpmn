@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0ecdgg4" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.5.0">
-  <bpmn:process id="TestMailOrTweet" isExecutable="true">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0ecdgg4" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:process id="TestMailOrTweet" name="Tweet or send email" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:extensionElements>
         <camunda:formData>
-          <camunda:formField id="Tweet" label="Set true to tweet, false to send mail" type="boolean" defaultValue="true" />
+          <camunda:formField id="processType" label="Tweet or Mail" type="enum">
+            <camunda:value id="tweet" name="Tweet" />
+            <camunda:value id="sendMail" name="Send Mail" />
+          </camunda:formField>
           <camunda:formField id="FormField_twitterContent" label="Enter your Tweet-content here:" type="string" defaultValue="empty" />
           <camunda:formField id="FormField_recipient" label="Enter mail recipient here:" type="string" defaultValue="doho@spammail.com" />
           <camunda:formField id="FormField_content" label="Enter mail content here:" type="string" defaultValue="empty" />
@@ -23,17 +26,15 @@
       <bpmn:incoming>Flow_1pvsqkj</bpmn:incoming>
       <bpmn:outgoing>Flow_0ijb691</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:exclusiveGateway id="Gateway_06j9232">
+    <bpmn:exclusiveGateway id="Gateway_06j9232" default="Flow_03qw4pb">
       <bpmn:incoming>Flow_14igq9x</bpmn:incoming>
       <bpmn:outgoing>Flow_1pvsqkj</bpmn:outgoing>
       <bpmn:outgoing>Flow_03qw4pb</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_1pvsqkj" name="Tweet" sourceRef="Gateway_06j9232" targetRef="Activity_1qbjqse">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Tweet}</bpmn:conditionExpression>
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${processType == 'tweet'}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_03qw4pb" name="Email" sourceRef="Gateway_06j9232" targetRef="Activity_1j2gsmz">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!Tweet}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_03qw4pb" name="Email" sourceRef="Gateway_06j9232" targetRef="Activity_1j2gsmz" />
     <bpmn:endEvent id="Event_05t0tb0">
       <bpmn:incoming>Flow_10vptdu</bpmn:incoming>
     </bpmn:endEvent>

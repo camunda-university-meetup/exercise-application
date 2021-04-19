@@ -21,7 +21,6 @@ public class TweetDelegate implements JavaDelegate {
         //input
         final String content = this.twitterContent.from(execution).getLocal();
 
-
         //processing
         this.twitterService.tweet(content);
     }
