@@ -46,7 +46,7 @@
     <bpmn:serviceTask id="Activity_1j2gsmz" name="Send email" camunda:delegateExpression="${mailDelegate}">
       <bpmn:extensionElements>
         <camunda:inputOutput>
-          <camunda:inputParameter name="subject">${FormField_content}</camunda:inputParameter>
+          <camunda:inputParameter name="subject">${FormField_subject}</camunda:inputParameter>
           <camunda:inputParameter name="content">${FormField_content}</camunda:inputParameter>
           <camunda:inputParameter name="recipient">${FormField_recipient}</camunda:inputParameter>
         </camunda:inputOutput>
@@ -70,7 +70,7 @@
         <di:waypoint x="300" y="270" />
         <di:waypoint x="390" y="270" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="301" y="233" width="28" height="14" />
+          <dc:Bounds x="316" y="233" width="28" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1pvsqkj_di" bpmnElement="Flow_1pvsqkj">
@@ -78,7 +78,7 @@
         <di:waypoint x="300" y="100" />
         <di:waypoint x="390" y="100" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="300" y="123" width="30" height="14" />
+          <dc:Bounds x="315" y="123" width="30" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_14igq9x_di" bpmnElement="Flow_14igq9x">
