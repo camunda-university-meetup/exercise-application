@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import static io.holunda.camunda.bpm.data.CamundaBpmData.stringVariable;
 
 
-@Component("tweetDelegate")
+@Component
 @RequiredArgsConstructor
 public class TweetDelegate implements JavaDelegate {
 
