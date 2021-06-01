@@ -1,11 +1,15 @@
 spring.datasource.url: jdbc:h2:file:./camunda-h2-database
 
-camunda.bpm:
-  admin-user:
-    id: demo
-    password: demo
-  filter:
-    create: All tasks
+camunda:
+  bpm:
+    admin-user:
+      id: demo
+      password: demo
+    filter:
+      create: All tasks
+    job-execution:
+      wait-time-in-millis: 3000
+      max-wait: 3000
 
 #Mailing
 spring.mail.host: smtp.gmail.com
@@ -24,3 +28,4 @@ twitter.apiKey: fsdafsfsda
 twitter.apiKeySecret: fdsafsda
 server:
   port: 8080
+
